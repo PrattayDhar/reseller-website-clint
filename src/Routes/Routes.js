@@ -11,8 +11,8 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
-                // loader: () => fetch('https://survey-help-server.vercel.app/home')
+                element: <Home></Home>,
+                loader: () => fetch('http://localhost:5000/category')
 
             }
             // {

@@ -1,11 +1,21 @@
-import React from 'react';
-// import React, { useContext } from 'react';
+
+import React, { useContext } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import { AuthContext } from '../../context/AuthProvider'
-import './Header.css'
+import { AuthContext } from '../../context/AuthProvider'
+import './Navbars.css'
 
 const Navbars = () => {
+    const { User, LogOut } = useContext(AuthContext)
+    const HandleLogout = () => {
+        LogOut()
+            .then(() => {
+                alert("Sign-out successful");
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+     };
     return (
         <div>
               <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

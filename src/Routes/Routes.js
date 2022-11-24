@@ -3,6 +3,7 @@ import Main from "../layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import Getstarted from "../Pages/Getstarted/Getstarted";
 import Home from "../Pages/Home/Home";
+import Productadd from "../Pages/ProductADD/Productadd";
 import Error from "../Shared/Error/Error";
 
 
@@ -33,10 +34,10 @@ export const routes = createBrowserRouter([
             //     element:<PrivateRoute><Myreview></Myreview></PrivateRoute> 
                 
             // },
-            // {
-            //     path:'/AddServices',
-            //     element:<PrivateRoute><Addservice></Addservice></PrivateRoute> 
-            // },
+            {
+                path:'/productadd',
+                element:<Productadd></Productadd>
+            },
             // {
             //     path:'servicedetails/:id',
             //     element:<ServiceDetails></ServiceDetails>,

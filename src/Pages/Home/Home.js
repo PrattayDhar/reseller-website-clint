@@ -33,6 +33,7 @@ const Home = () => {
                     <Row xs={1} md={3} className="g-4">
                         {
                             productcategory.map(category =>
+                                
                                 <Col >
                                     <Card >
                                         <Card.Img variant="top" src={category.img} style={{ height: '18rem' }} />

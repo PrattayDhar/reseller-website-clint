@@ -37,30 +37,42 @@ const Getstarted = () => {
                 navigate(from, { replace: true })
 
                 alert("Login Successful");
-
+  const user={
+        Username:result.user.displayName,
+        email:result.user.email,
+        role:"buyer"
+       }
+       rolelogin(user)
             })
+            
             .catch((error) => {
                 setError(error);
+               
             });
     };
     const { Register, UpdateUser } = useContext(AuthContext);
     const Handlesingup = (event) => {
+      
         event.preventDefault();
         const form = event.target;
         const Username = form.logname.value;
         const photoURL = form.photourl.value;
         const email = form.logemail.value;
         const password = form.logpass.value;
-        const role =form.role.value;
-        const ck={role}
-        console.log(ck);
+        const role=form.role.value;
+        const user={
+        Username:Username,
+        email:email,
+        role:role
+       }
+       rolelogin(user)
         Register(email, password)
             .then(() => {
                 navigate(from, { replace: true })
                 console.log("Login Successful of", email);
                 form.reset();
                 setError("");
-
+             
                 const profile = { displayName: Username, photoURL: photoURL };
                 UpdateUser(profile)
                     .then(() => { })
@@ -70,14 +82,32 @@ const Getstarted = () => {
                 setError(error.message);
             });
     };
+      const rolelogin=(user)=>{
+           fetch("http://localhost:5000/useradd",{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+        }
     const githndl = () => {
         const auth = getAuth();
         signInWithPopup(auth, gitprovider)
             .then((result) => {
                 navigate(from, { replace: true })
+                const user={
+        Username:result.user.displayName,
+        email:result.user.email,
+        role:"Buyer"
+       }
+       rolelogin(user)
+       console.log(user);
 
             })
             .catch((error) => console.error(error));
+            
     }
     return (
         <div className='regbody'>
@@ -110,10 +140,7 @@ const Getstarted = () => {
                                                             <i className="input-icon uil uil-lock-alt"></i>
                                                         </div>
                                                         <Button className='mt-3' type='submit'>Log In</Button>
-                                                        <div className='d-flex justify-content-evenly g-3 pt-4'>
-                                                            <Button onClick={HandleGoogle} className='mb-2' variant="outline-primary"><FaGoogle></FaGoogle></Button>
-                                                            <Button onClick={githndl} className='mb-2' variant="outline-dark"><FaGithub></FaGithub></Button>
-                                                        </div>
+                                                        
 
                                                     </form>
                                                     <p className="mb-0 mt-4 text-center"><a href="/" className="link">{error}</a></p>
@@ -147,6 +174,10 @@ const Getstarted = () => {
                                                            <label htmlFor="Buyer">Buyer</label>
                                                            <input type="radio" id="seller"  name="role"  value="Seller" required/>
                                                               <label htmlFor="Seller">Seller</label>
+                                                        </div>
+                                                        <div className='d-flex justify-content-evenly g-3 pt-4'>
+                                                            <Button onClick={HandleGoogle} className='mb-2' variant="outline-primary"><FaGoogle></FaGoogle></Button>
+                                                            <Button onClick={githndl} className='mb-2' variant="outline-dark"><FaGithub></FaGithub></Button>
                                                         </div>
                                                         <Button className='mt-2' type='submit'>Sing Up</Button>
                                                     </form>

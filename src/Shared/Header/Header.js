@@ -6,8 +6,17 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 const Header = () => {
-     const { User, LogOut } = useContext(AuthContext)
-   
+    const { User, LogOut } = useContext(AuthContext)
+   const HandleLogout = () => {
+        LogOut()
+            .then(() => {
+                alert("Sign-out successful");
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+
+    };
     return (
         <div>
              <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -19,14 +28,15 @@ const Header = () => {
             <Nav.Link><Link  style={{ textDecoration: 'none' }}  to={'/'}>Home</Link></Nav.Link>
             <Nav.Link><Link  style={{ textDecoration: 'none' }} to={'/blog'}>Blog</Link></Nav.Link>
             <Nav.Link><Link  style={{ textDecoration: 'none' }} to={'/dashboard'}>Dashboard</Link></Nav.Link>
+            <Nav.Link><Link  style={{ textDecoration: 'none' }} to={'/productadd'}>Add service</Link></Nav.Link>
+           
             
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">userpic</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              username
-            </Nav.Link>
-            <Nav.Link ><Link to={'/getstarted'} style={{ textDecoration: 'none' }}>Get Started</Link></Nav.Link>
+             <Nav.Link >{User ? <div className='d-flex'><Nav.Link >{User.displayName}</Nav.Link>
+              <Nav.Link  ><img src={User.photoURL} alt="" title={User.displayName} className='rounded-circle  naving' /></Nav.Link></div> : ""}</Nav.Link>
+          
+            <Nav.Link >{User ? <Link onClick={HandleLogout} style={{ textDecoration: 'none' }}>Log Out</Link> : <Nav.Link ><Link to={'/getstarted'} style={{ textDecoration: 'none' }}>Get Started</Link></Nav.Link>}</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

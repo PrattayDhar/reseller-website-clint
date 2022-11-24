@@ -1,9 +1,12 @@
 
+import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 const Header = () => {
+     const { User, LogOut } = useContext(AuthContext)
    
     return (
         <div>

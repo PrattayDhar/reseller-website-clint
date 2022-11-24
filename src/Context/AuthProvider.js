@@ -16,7 +16,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     //children mane index.js er <App /> ta
 
-    const [User, setUser] = useState({});
+    const [User, setUser] = useState([]);
     const [loading, setLoading] = useState(true);
 
     //Login with Google

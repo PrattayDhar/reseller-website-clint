@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Blog from "../Pages/Blog/Blog";
+import Getstarted from "../Pages/Getstarted/Getstarted";
 import Home from "../Pages/Home/Home";
 import Error from "../Shared/Error/Error";
 
@@ -22,11 +23,11 @@ export const routes = createBrowserRouter([
             //     element: <Service></Service>
                
             // },
-            // {
-            //     path:'/getstarted',
-            //     element:<Getstarted></Getstarted>
+            {
+                path:'/getstarted',
+                element:<Getstarted></Getstarted>
 
-            // },
+            },
             // {
             //     path:'/myreviews',
             //     element:<PrivateRoute><Myreview></Myreview></PrivateRoute> 

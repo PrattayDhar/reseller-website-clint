@@ -7,6 +7,7 @@ import './Home.css'
 
 const Home = () => {
      const productcategory=useLoaderData()
+     console.log(productcategory);
     return (
         <div>
        <Carousel className='pt-2 pb-4'>

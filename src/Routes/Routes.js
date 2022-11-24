@@ -1,4 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
+import Allbuyer from "../Dashboard/Allbuyer/Allbuyer";
+import Allseller from "../Dashboard/Allseller/Allseller";
+import Myorder from "../Dashboard/Myorder/Myorder";
+import Muproduct from "../Dashboard/Myproduct/Muproduct";
+import Reportiteam from "../Dashboard/Reportitem/Reportiteam";
+import Dashboardlayout from "../layout/Dashboardlayout";
 import Main from "../layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import Getstarted from "../Pages/Getstarted/Getstarted";
@@ -20,8 +26,8 @@ export const routes = createBrowserRouter([
             },
             
             // {
-            //     path: '/service',
-            //     element: <Service></Service>
+            //     path: '/dashboard',
+            //     element: <Dashboardlayout></Dashboardlayout>
                
             // },
             {
@@ -52,6 +58,21 @@ export const routes = createBrowserRouter([
         ]
        
     },
+   {
+    path: "/Dashboard",
+    element: <Dashboardlayout></Dashboardlayout>,
+    children: [
+      { path: "/Dashboard/MyOrders", element: <Myorder></Myorder> },
+      { path: "/Dashboard/MyProducts", element: <Muproduct></Muproduct>},
+      { path: "/Dashboard//productadd'", element:<Productadd></Productadd>  },
+      { path: "/Dashboard/AllSellers", element: <Allseller></Allseller> },
+      { path: "/Dashboard/AllBuyers", element: <Allbuyer></Allbuyer> },
+      {
+        path: "/Dashboard/ReportedItems",
+        element: <Reportiteam></Reportiteam>
+      },
+    ],
+  },
     {
         path:'*',
         element:<Error></Error>

@@ -1,8 +1,18 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+// import { useLoaderData } from 'react-router-dom';
 import './Productadd.css'
 
 const Productadd = () => {
+    // const  pcategory=useLoaderData()
+    // console.log(pcategory);
+    const [cetagorys, setCetagory] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/category')
+            .then((res) => res.json())
+            .then((data) => setCetagory(data));
+    }, []);
+    console.log(cetagorys);
 
     const [user, setUser] = useState({})
     const addservice = event =>{
@@ -44,6 +54,7 @@ const Productadd = () => {
                     <input onBlur={blr} name="Email" className="input-text js-input" type="email" required />
                     <label className="label my-3" >Email</label>
                 </div>
+               
                     <div className="form-field col-lg-6 ">
                     <input onBlur={blr} name="Number" className="input-text js-input" type="number" required />
                     <label className="label my-3" >Phone Number</label>
@@ -75,11 +86,32 @@ const Productadd = () => {
 
                 <div className="form-field col-lg-12">
                     <input onBlur={blr} name="description" className="input-text js-input" type="text" required />
-                    <label className="label my-3" >Description</label>
+                    <label className="label my-3" >Condition Details</label>
+                </div>
+                 <div className='mb-4'>
+    <label htmlFor="Category">Select Category:</label>
+  <select  name="Category">
+    {cetagorys.map((cetagory)=> 
+        <option  key={cetagory._id} value={cetagory._id}>
+      {cetagory.category}
+        </option>
+
+    )}
+  </select>
+                </div>
+                <div className='mt-5'>
+                    <label for="cars">Product Condition:</label>
+  <select id="condition" name="Condition">
+    <option value="excellent">Excellent</option>
+    <option value="Good">Good</option>
+    <option value="fair">Fair</option>
+    
+  </select>
                 </div>
                 <div className="form-field col-lg-12">
-                    <button className="submit-btn" type="submit" value="Submit">Submit</button>
+                    <button className="submit-btn mt-5" type="submit" value="Submit">Submit</button>
                 </div>
+                
             </form>
 
         </section>

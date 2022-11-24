@@ -51,6 +51,9 @@ const Getstarted = () => {
         const photoURL = form.photourl.value;
         const email = form.logemail.value;
         const password = form.logpass.value;
+        const role =form.role.value;
+        const ck={role}
+        console.log(ck);
         Register(email, password)
             .then(() => {
                 navigate(from, { replace: true })
@@ -121,7 +124,7 @@ const Getstarted = () => {
                                         <div className="card-back">
                                             <div className="center-wrap">
                                                 <div className="section text-center">
-                                                    <h4 className="mb-4 pb-3">Sign Up</h4>
+                                                    <h4 className="mb-2 pb-3">Sign Up</h4>
                                                     <form onSubmit={Handlesingup} >
                                                         <div className="form-group">
                                                             <input type="text" name="logname" className="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" />
@@ -137,11 +140,15 @@ const Getstarted = () => {
                                                         </div>
                                                         <div className="form-group mt-2">
                                                             <input type="password" name="logpass" className="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
-                                                             <Form.Check type="radio" aria-label="radio 1" />
-
-                                                            <Button className='mt-3' type='submit'>Sing Up</Button>
-
+                                                            
                                                         </div>
+                                                        <div>
+                                                            <input type="radio" id="buyer" name="role" value="Buyer" required/>
+                                                           <label htmlFor="Buyer">Buyer</label>
+                                                           <input type="radio" id="seller"  name="role"  value="Seller" required/>
+                                                              <label htmlFor="Seller">Seller</label>
+                                                        </div>
+                                                        <Button className='mt-2' type='submit'>Sing Up</Button>
                                                     </form>
 
 

@@ -90,7 +90,7 @@ const Productadd = () => {
                 </div>
                  <div className='mb-4'>
     <label htmlFor="Category">Select Category:</label>
-  <select  name="Category">
+  <select onBlur={blr}  name="Category">
     {cetagorys.map((cetagory)=> 
         <option  key={cetagory._id} value={cetagory._id}>
       {cetagory.category}
@@ -101,7 +101,7 @@ const Productadd = () => {
                 </div>
                 <div className='mt-5'>
                     <label for="cars">Product Condition:</label>
-  <select id="condition" name="Condition">
+  <select onBlur={blr} id="condition" name="Condition">
     <option value="excellent">Excellent</option>
     <option value="Good">Good</option>
     <option value="fair">Fair</option>

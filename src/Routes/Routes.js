@@ -7,9 +7,10 @@ import Reportiteam from "../Dashboard/Reportitem/Reportiteam";
 import Dashboardlayout from "../layout/Dashboardlayout";
 import Main from "../layout/Main";
 import Blog from "../Pages/Blog/Blog";
+import Cetagorydetail from "../Pages/Cetagorydetail/Cetagorydetail";
 import Getstarted from "../Pages/Getstarted/Getstarted";
 import Home from "../Pages/Home/Home";
-import Productadd from "../Pages/ProductADD/Productadd";
+import Productadd from "../Dashboard/ProductADD/Productadd";
 import Error from "../Shared/Error/Error";
 
 
@@ -40,17 +41,17 @@ export const routes = createBrowserRouter([
             //     element:<PrivateRoute><Myreview></Myreview></PrivateRoute> 
                 
             // },
-            {
-                path:'/productadd',
-                element:<Productadd></Productadd>
-            },
             // {
-            //     path:'servicedetails/:id',
-            //     element:<ServiceDetails></ServiceDetails>,
-            //     loader: ({ params }) => fetch(`https://survey-help-server.vercel.app/services/${params.id}`)
+            //     path:'/productadd',
+            //     element:<Productadd></Productadd>
+            // },
+            {
+                path:'product/:id',
+                element:<Cetagorydetail></Cetagorydetail>,
+                loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
                 
 
-            // },
+            },
             {
                 path:'/blog',
                 element:<Blog></Blog>
@@ -64,7 +65,7 @@ export const routes = createBrowserRouter([
     children: [
       { path: "/Dashboard/MyOrders", element: <Myorder></Myorder> },
       { path: "/Dashboard/MyProducts", element: <Muproduct></Muproduct>},
-      { path: "/Dashboard//productadd'", element:<Productadd></Productadd>  },
+      { path: "/Dashboard/productadd", element:<Productadd></Productadd>  },
       { path: "/Dashboard/AllSellers", element: <Allseller></Allseller> },
       { path: "/Dashboard/AllBuyers", element: <Allbuyer></Allbuyer> },
       {

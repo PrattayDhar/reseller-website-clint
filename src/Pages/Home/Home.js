@@ -45,7 +45,7 @@ const Home = () => {
                                         <Card.Body className='cardmodel'>
                                             <Card.Body className='d-flex  justify-content-around pt-3'>
                                                 <h6>Find Your Laptop</h6>
-                                                <button className='btn btn-info'><Link style={{ textDecoration: 'none' }} to={`/categorydetails/${category._id}`}>Details
+                                                <button className='btn btn-info'><Link style={{ textDecoration: 'none' }} to={`/product/${category._id}`}>Details
                                                 </Link>
                                                 </button>
 

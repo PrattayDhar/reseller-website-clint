@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
+import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home";
 import Error from "../Shared/Error/Error";
 
@@ -14,7 +15,8 @@ export const routes = createBrowserRouter([
                 element: <Home></Home>,
                 loader: () => fetch('http://localhost:5000/category')
 
-            }
+            },
+            
             // {
             //     path: '/service',
             //     element: <Service></Service>
@@ -41,10 +43,10 @@ export const routes = createBrowserRouter([
                 
 
             // },
-            // {
-            //     path:'/blog',
-            //     element:<Blog></Blog>
-            // }
+            {
+                path:'/blog',
+                element:<Blog></Blog>
+            }
         ]
        
     },

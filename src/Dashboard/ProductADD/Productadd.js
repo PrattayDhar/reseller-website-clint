@@ -71,6 +71,10 @@ const Productadd = () => {
                     <input onBlur={blr} name="BrandName" className="input-text js-input" type="text" required />
                     <label className="label my-3" >Brand Name</label>
                 </div>
+                <div className="form-field col-lg-6 ">
+                    <input onBlur={blr} name="Date" className="input-text js-input" type="date" required />
+                    <label className="label my-3" >Buying Date</label>
+                </div>
                 <div className="form-field col-lg-12 ">
                     <input onBlur={blr} name="img" className="input-text js-input" type="text" required />
                     <label className="label my-3" >Laptop Image Url</label>

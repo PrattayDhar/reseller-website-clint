@@ -46,7 +46,7 @@ export const routes = createBrowserRouter([
             //     element:<Productadd></Productadd>
             // },
             {
-                path:'product/:id',
+                path:'/product/:id',
                 element:<Cetagorydetail></Cetagorydetail>,
                 loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
                 
@@ -66,8 +66,10 @@ export const routes = createBrowserRouter([
       { path: "/Dashboard/MyOrders", element: <Myorder></Myorder> },
       { path: "/Dashboard/MyProducts", element: <Muproduct></Muproduct>},
       { path: "/Dashboard/productadd", element:<Productadd></Productadd>  },
-      { path: "/Dashboard/AllSellers", element: <Allseller></Allseller> },
-      { path: "/Dashboard/AllBuyers", element: <Allbuyer></Allbuyer> },
+      { path: "/Dashboard/AllSellers", element: <Allseller></Allseller>,
+    loader:()=>fetch('http://localhost:5000/sellers') },
+      { path: "/Dashboard/AllBuyers", element: <Allbuyer></Allbuyer>,
+    loader:()=>fetch('http://localhost:5000/buyer') },
       {
         path: "/Dashboard/ReportedItems",
         element: <Reportiteam></Reportiteam>

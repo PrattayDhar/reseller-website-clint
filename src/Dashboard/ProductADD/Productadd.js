@@ -64,7 +64,7 @@ const Productadd = () => {
                     <label className="label my-3" >Location</label>
                 </div>
                 <div className="form-field col-lg-6">
-                    <input onBlur={blr} name="title" className="input-text js-input " type="text" required />
+                    <input onBlur={blr} name="model" className="input-text js-input " type="text" required />
                     <label className="label my-3" htmlFor='name'>Model</label>
                 </div>
                 <div className="form-field col-lg-6 ">

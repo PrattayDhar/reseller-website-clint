@@ -19,12 +19,22 @@ const Cetagorydetail = () => {
                                         <Card.Img variant="top" src={category.img} style={{ height: '18rem' }} />
                                         <Card.Body className='cardmodel'>
                                            
-                                            <Card.Title>Brand Name:{category.category}</Card.Title>
+                                            <Card.Title>Brand Name:{category.BrandName}</Card.Title>
+                                            <Card.Title>Model:{category.model}</Card.Title>
+                                            <Card.Title>Old Price:{category.Oldprice}</Card.Title>
+                                            <Card.Title>Resellprice:{category.Resellprice}</Card.Title>
+                                            <Card.Title>Buy Date:{category.Date}</Card.Title>
+                                            <Card.Title>Condition:{category.Condition}</Card.Title>
+                                              <p> Description:{category.description}</p>
                                         </Card.Body>
                                         <Card.Body className='cardmodel'>
-                                            <Card.Body className='d-flex  justify-content-around pt-3'>
-                                                <h6>Find Your Laptop</h6>
-                                                <button className='btn btn-info'><Link style={{ textDecoration: 'none' }} to={`/product/${category._id}`}>Details
+                                            <Card.Body className='justify-content-around pt-3'>
+                                                <p> Seller Name:{category.SellerName}</p>
+                                                <p> Seller Email:{category.Email}</p>
+                                                <p> Seller Number:{category.Number}</p>
+                                                <p> Seller Location:{category.Location}</p>
+                                               
+                                                <button className='btn btn-info'><Link style={{ textDecoration: 'none' }} to={`/product/${category._id}`}>Buy Now
                                                 </Link>
                                                 </button>
 

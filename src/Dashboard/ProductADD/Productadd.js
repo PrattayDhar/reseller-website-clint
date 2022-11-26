@@ -12,7 +12,6 @@ const Productadd = () => {
             .then((res) => res.json())
             .then((data) => setCetagory(data));
     }, []);
-    console.log(cetagorys);
 
     const [user, setUser] = useState({})
     const addservice = event =>{

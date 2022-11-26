@@ -4,20 +4,17 @@ import { Button } from 'react-bootstrap';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Muproduct = () => {
-  //   const { User } = useContext(AuthContext);
-  // const {
-  //   data: products
-    // isLoading,
-    // refetch,
-  // } = useQuery({
-  //   queryKey: ["products"],
-  //   queryFn: async () => {
-      // const res = await fetch(`http://localhost:5000/Sellerproduct/?email=${User?.email}`);
-  //     const data = await res.json();
-  //     return data;
-  //   },
-  // });
-  
+const HandleUpdate = (id) => {
+    fetch(`http://localhost:5000/product/ad/${id}`, {
+          method: "PATCH",
+          headers: { "content-type": "application/json" },
+        })
+          .then((res) => res.json())
+          .then(() => {
+            alert('Product Advertised')
+         
+          });
+  }
  
      const [allProduct, setProduct] = useState([])
    
@@ -54,15 +51,19 @@ const Muproduct = () => {
     <tr>
       <th scope="col">Model</th>
       <th scope="col">BrandName</th>
-      <th>
-        <Button onClick={() => hdlt(product._id)}>Delete</Button></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      
     </tr>
   </thead>
    <tr>
     
       <td> Model:{product.model}</td>
       <td>Brand Name:{product.BrandName}</td>
-        
+        <td>
+        <Button onClick={() => hdlt(product._id)}>Delete</Button></td>
+      <th>
+        <Button onClick={() => HandleUpdate(product._id)}>Advertisement</Button></th>
 
     </tr>   
     

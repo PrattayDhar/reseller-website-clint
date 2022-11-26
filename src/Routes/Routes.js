@@ -12,6 +12,7 @@ import Getstarted from "../Pages/Getstarted/Getstarted";
 import Home from "../Pages/Home/Home";
 import Productadd from "../Dashboard/ProductADD/Productadd";
 import Error from "../Shared/Error/Error";
+import PrivateRoute from "./PrivateRoutes";
 
 
 export const routes = createBrowserRouter([
@@ -61,7 +62,7 @@ export const routes = createBrowserRouter([
     },
    {
     path: "/Dashboard",
-    element: <Dashboardlayout></Dashboardlayout>,
+    element: <PrivateRoute><Dashboardlayout></Dashboardlayout></PrivateRoute>,
     children: [
       { path: "/Dashboard/MyOrders", element: <Myorder></Myorder> },
       { path: "/Dashboard/MyProducts", element: <Muproduct></Muproduct>},

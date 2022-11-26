@@ -9,7 +9,7 @@ const Allseller = () => {
       const hdlt = _id => {
         const agree = window.confirm(`Are You Sure delete ${_id}`)
         if (agree) {
-            fetch(`http://localhost:5000/buyer/${_id}`, {
+            fetch(`http://localhost:5000/sellers/${_id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -23,6 +23,18 @@ const Allseller = () => {
                 });
         }
     }
+
+    const Handleverify = (id) => {
+    fetch(`http://localhost:5000/sellers/ver/${id}`, {
+          method: "PATCH",
+          headers: { "content-type": "application/json" },
+        })
+          .then((res) => res.json())
+          .then(() => {
+            alert('Verified')
+         
+          });
+  }
     return (
         <div>
          {allseller.map(sellers=>
@@ -30,14 +42,18 @@ const Allseller = () => {
                 <thead>
     <tr>
       <th scope="col">UserName</th>
-      <th scope="col">Email</th><th>
-        <Button onClick={() => hdlt(sellers._id)}>Delete</Button></th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
    <tr>
     
       <td>{sellers.Username}</td>
       <td>{sellers.email}</td>
+      <td>
+        <Button onClick={() => hdlt(sellers._id)}>Delete</Button></td>
+        <td><Button onClick={() => Handleverify(sellers._id)}>Verify</Button></td>
         
 
     </tr>   

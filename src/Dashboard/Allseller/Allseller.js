@@ -37,7 +37,7 @@ const Allseller = () => {
     return (
         <div>
          {allseller.map(sellers=>
-            <table className="table table-primary">
+            <table className="table  table-primary">
                 <thead>
     <tr>
       <th scope="col">UserName</th>

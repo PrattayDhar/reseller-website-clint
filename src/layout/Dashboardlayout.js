@@ -15,14 +15,12 @@ const Dashboardlayout = () => {
     return (
        <div>
       <Header></Header>
-      <div className="drawer drawer-mobile ">
-        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content  ">
+      <div className='d-flex  ' >
+        {/* <div>
           <Outlet></Outlet>
-        </div>
-        <div className="drawer-side d-flex">
-          <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+        </div> */}
+        {/* <div >
+          <ul >
             {
               isBuyer && (
                  <li>
@@ -64,7 +62,56 @@ const Dashboardlayout = () => {
               
             </>
           </ul>
+        </div> */}
+
+        <div >
+          <h6 className='pt-4 px-3'>Options</h6>
+          <ul >
+            {
+              isBuyer && (
+                 <li>
+              <Link style={{ textDecoration: 'none' }} to={"/dashboard/MyOrders"}>My Orders</Link>
+            </li>
+              )
+            }
+           
+            <>
+            {
+              isSeller && (
+                 <>
+                 <li>
+                <Link style={{ textDecoration: 'none' }} to={"/Dashboard/MyProducts"}>My Products</Link>
+              </li>
+              
+              <li>
+                <Link style={{ textDecoration: 'none' }} to={"/Dashboard/productadd"}>Add A Product</Link>
+              </li>
+            </>
+              )
+            }
+             {
+              isAdmin &&(
+                <>
+                 <li>
+                <Link style={{ textDecoration: 'none' }} to={"/Dashboard/AllSellers"}>All Sellers</Link>
+              </li>
+              <li>
+                <Link style={{ textDecoration: 'none' }} to={"/dashboard/AllBuyers"}>All Buyers</Link>
+              </li>
+              <li>
+                <Link style={{ textDecoration: 'none' }} to={"/Dashboard/ReportedItems"}>Reported Items</Link>
+              </li>
+                </>
+              )
+             }
+             
+              
+            </>
+          </ul>
         </div>
+<div className='px-5 mx-5 w-75'><Outlet></Outlet></div> 
+
+
       </div>
       <Footer></Footer>
     </div>

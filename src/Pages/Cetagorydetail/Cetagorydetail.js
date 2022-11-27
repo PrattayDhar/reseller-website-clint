@@ -1,10 +1,10 @@
-
-import { Card, Col,  Row } from 'react-bootstrap';
-import { Link, useLoaderData } from 'react-router-dom';
+import {  Card, Col,    Row } from 'react-bootstrap';
+import {  Link, useLoaderData } from 'react-router-dom';
 
 const Cetagorydetail = () => {
      const singleproductdetail = useLoaderData()  
      console.log(singleproductdetail);
+      
     return (
         <div>
                <Row>
@@ -34,10 +34,9 @@ const Cetagorydetail = () => {
                                                 <p> Seller Number:{category.Number}</p>
                                                 <p> Seller Location:{category.Location}</p>
                                                
-                                                <button className='btn btn-info'><Link style={{ textDecoration: 'none' }} to={`/product/${category._id}`}>Buy Now
+                                                <button className='btn btn-info'><Link style={{ textDecoration: 'none' }} to={`/prepayment/${category._id}`}>Book Now
                                                 </Link>
                                                 </button>
-
                                             </Card.Body>
                                         </Card.Body>
                                     </Card>

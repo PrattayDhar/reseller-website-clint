@@ -10,6 +10,7 @@ import Blog from "../Pages/Blog/Blog";
 import Cetagorydetail from "../Pages/Cetagorydetail/Cetagorydetail";
 import Getstarted from "../Pages/Getstarted/Getstarted";
 import Home from "../Pages/Home/Home";
+import Prepayment from "../Pages/Prepayment/Prepayment";
 import Productadd from "../Dashboard/ProductADD/Productadd";
 import Error from "../Shared/Error/Error";
 import PrivateRoute from "./PrivateRoutes";
@@ -37,11 +38,12 @@ export const routes = createBrowserRouter([
                 element:<Getstarted></Getstarted>
 
             },
-            // {
-            //     path:'/myreviews',
-            //     element:<PrivateRoute><Myreview></Myreview></PrivateRoute> 
-                
-            // },
+            {
+                path:'/prepayment/:id',
+                // element:<PrivateRoute></PrivateRoute>
+                element: <Prepayment></Prepayment>,
+                 loader: ({ params }) => fetch(`http://localhost:5000/prepayment/${params.id}`)
+            },
             // {
             //     path:'/productadd',
             //     element:<Productadd></Productadd>

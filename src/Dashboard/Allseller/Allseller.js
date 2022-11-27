@@ -5,7 +5,6 @@ import { useLoaderData } from 'react-router-dom';
 const Allseller = () => {
     const allseller = useLoaderData()
      const [allUser, setUser] = useState([])
-   
       const hdlt = _id => {
         const agree = window.confirm(`Are You Sure delete ${_id}`)
         if (agree) {
@@ -53,8 +52,8 @@ const Allseller = () => {
       <td>{sellers.email}</td>
       <td>
         <Button onClick={() => hdlt(sellers._id)}>Delete</Button></td>
-        <td><Button onClick={() => Handleverify(sellers._id)}>Verify</Button></td>
-        
+        <td> {sellers?.verify==="true" ? <p>Verified</p> : <Button onClick={() => Handleverify(sellers._id)}>Verified</Button> }</td>
+      
 
     </tr>   
     

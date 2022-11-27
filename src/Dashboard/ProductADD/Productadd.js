@@ -4,8 +4,6 @@ import React, { useEffect, useState } from 'react'
 import './Productadd.css'
 
 const Productadd = () => {
-    // const  pcategory=useLoaderData()
-    // console.log(pcategory);
     const [cetagorys, setCetagory] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/category')

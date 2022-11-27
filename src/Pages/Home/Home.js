@@ -3,6 +3,7 @@ import { Card, Carousel, Col, Row } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 import img1 from '../../image/img1.jpg'
 import img2 from '../../image/img2.jpg'
+import Adver from '../Adver/Adver';
 import './Home.css'
 
 const Home = () => {
@@ -57,7 +58,9 @@ const Home = () => {
                     </Row></Col>
 
             </Row>
+            <Adver></Adver>
         </div>
+        
     );
 };
 

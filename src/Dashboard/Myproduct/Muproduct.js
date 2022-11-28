@@ -62,12 +62,9 @@ const HandleUpdate = (id) => {
       <td>Brand Name:{product.BrandName}</td>
         <td>
         <Button onClick={() => hdlt(product._id)}>Delete</Button></td>
-      <th>
-        <Button onClick={() => HandleUpdate(product._id)}>Advertisement</Button></th>
-
+        <td> {product?.advertise==="true" ? <p>Advertised</p> : <Button onClick={() => HandleUpdate(product._id)}>Advertisement</Button> }</td>
+       
     </tr>   
-    
-  
             </table>
             
             )}

@@ -4,6 +4,17 @@ import {  Link, useLoaderData } from 'react-router-dom';
 const Cetagorydetail = () => {
      const singleproductdetail = useLoaderData()  
      console.log(singleproductdetail);
+     const Handleverify = (id) => {
+    fetch(`http://localhost:5000/product/report/${id}`, {
+          method: "PATCH",
+          headers: { "content-type": "application/json" },
+        })
+          .then((res) => res.json())
+          .then(() => {
+            alert('Reported')
+         
+          });
+  }
       
     return (
         <div>
@@ -33,10 +44,18 @@ const Cetagorydetail = () => {
                                                 <p> Seller Email:{category.Email}</p>
                                                 <p> Seller Number:{category.Number}</p>
                                                 <p> Seller Location:{category.Location}</p>
-                                               
-                                                <button className='btn btn-info'><Link style={{ textDecoration: 'none' }} to={`/prepayment/${category._id}`}>Book Now
+                                                <div className='d-flex justify-content-between'>
+                                                    <div>
+                                                <button className='btn btn-info'onClick={() => Handleverify(category._id)}>Report Product</button>
+                                               </div>
+                                               <div>
+                                                 <button className='btn btn-info'><Link style={{ textDecoration: 'none' }} to={`/prepayment/${category._id}`}>Book Now
                                                 </Link>
                                                 </button>
+                                               </div>
+                                                </div>
+                                               
+                                               
                                             </Card.Body>
                                         </Card.Body>
                                     </Card>

@@ -1,65 +1,22 @@
 import {  Card, Col,    Row } from 'react-bootstrap';
 import {  Link, useLoaderData } from 'react-router-dom';
+import Detailcard from './Detailcard';
 
 const Cetagorydetail = () => {
      const singleproductdetail = useLoaderData()  
      console.log(singleproductdetail);
-     const Handleverify = (id) => {
-    fetch(`http://localhost:5000/product/report/${id}`, {
-          method: "PATCH",
-          headers: { "content-type": "application/json" },
-        })
-          .then((res) => res.json())
-          .then(() => {
-            alert('Reported')
-         
-          });
-  }
+    
       
     return (
         <div>
                <Row>
                 
-                <Col lg=""><p>Total Product:  {singleproductdetail.length}</p>
+                <Col lg=""><p>Total Product:{singleproductdetail.length}</p>
                     <Row xs={1} md={3} className="g-4">
                         {
                            singleproductdetail.map(category =>
                                 
-                                <Col >
-                                    <Card >
-                                        <Card.Img variant="top" src={category.img} style={{ height: '18rem' }} />
-                                        <Card.Body className='cardmodel'>
-                                           
-                                            <Card.Title>Brand Name:{category.BrandName}</Card.Title>
-                                            <Card.Title>Model:{category.model}</Card.Title>
-                                            <Card.Title>Old Price:{category.Oldprice}</Card.Title>
-                                            <Card.Title>Resellprice:{category.Resellprice}</Card.Title>
-                                            <Card.Title>Buy Date:{category.Date}</Card.Title>
-                                            <Card.Title>Condition:{category.Condition}</Card.Title>
-                                              <p> Description:{category.description}</p>
-                                        </Card.Body>
-                                        <Card.Body className='cardmodel'>
-                                            <Card.Body className='justify-content-around pt-3'>
-                                                <p> Seller Name:{category.SellerName}</p>
-                                                <p> Seller Email:{category.Email}</p>
-                                                <p> Seller Number:{category.Number}</p>
-                                                <p> Seller Location:{category.Location}</p>
-                                                <div className='d-flex justify-content-between'>
-                                                    <div>
-                                                <button className='btn btn-info'onClick={() => Handleverify(category._id)}>Report Product</button>
-                                               </div>
-                                               <div>
-                                                 <button className='btn btn-info'><Link style={{ textDecoration: 'none' }} to={`/prepayment/${category._id}`}>Book Now
-                                                </Link>
-                                                </button>
-                                               </div>
-                                                </div>
-                                               
-                                               
-                                            </Card.Body>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
+                                <Detailcard category={category}></Detailcard>
                             )}
                     </Row></Col>
 

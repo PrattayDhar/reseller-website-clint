@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const Reportiteam = () => {
      const [report, setreport] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/home/add')
+        fetch('https://laptop-reseller-server-delta.vercel.app/home/add')
             .then((res) => res.json())
             .then((data) => setreport(data));
     }, []);

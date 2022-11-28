@@ -1,6 +1,8 @@
+import { loadStripe } from '@stripe/stripe-js';
 import React, { useContext} from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+
 
 const Prepayment = () => {
       const { User } = useContext(AuthContext)
@@ -17,6 +19,7 @@ const Prepayment = () => {
         const model= form.model.value;
         const Date= form.Date.value;
         const Resellprice= form.Resellprice.value;
+        const id= form.id.value;
 
         const pay={
             buyername,
@@ -27,8 +30,10 @@ const Prepayment = () => {
             model,
             Date,
             Resellprice,
+            id
+
         }
-        fetch("http://localhost:5000/paydetails",{
+        fetch("https://laptop-reseller-server-delta.vercel.app/paydetails",{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -52,11 +57,11 @@ const Prepayment = () => {
 
                  <form onSubmit={addservice} className="contact-form row">
                     <div className="form-field col-lg-6 ">
-                    <input  name="buyername" className="input-text js-input" type="text" required value={User.displayName} readOnly />
+                    <input  name="buyername" className="input-text js-input" type="text" required value={User?.displayName} readOnly />
                     <label className="label my-3" >Buyer Name</label>
                 </div>
                     <div className="form-field col-lg-6 ">
-                    <input  name="Email" className="input-text js-input" type="email" required value={User.email} readOnly />
+                    <input  name="Email" className="input-text js-input" type="email" required value={User?.email} readOnly />
                     <label className="label my-3" >Email</label>
                 </div>
                
@@ -71,6 +76,10 @@ const Prepayment = () => {
                 <div className="form-field col-lg-6">
                     <input name="model" className="input-text js-input " type="text" required value={prepayment.model} readOnly />
                     <label className="label my-3" htmlFor='name'>Model</label>
+                </div>
+                <div className="form-field col-lg-6">
+                    <input name="id" className="input-text js-input " type="text" required value={prepayment._id} readOnly />
+                    <label className="label my-3" htmlFor='name'>Product Id</label>
                 </div>
                 <div className="form-field col-lg-6 ">
                     <input name="BrandName" className="input-text js-input" type="text" required value={prepayment.BrandName} readOnly />

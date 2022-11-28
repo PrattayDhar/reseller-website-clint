@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Myorder = () => {
     const{User}=useContext(AuthContext)
      const [myorder, setmyorder] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/myorders/?email=${User?.email}`)
+        fetch(`https://laptop-reseller-server-delta.vercel.app/myorders/?email=${User?.email}`)
             .then((res) => res.json())
             .then((data) => setmyorder(data));
     }, []);
@@ -15,7 +15,7 @@ const Myorder = () => {
       const hdlt = _id => {
         const agree = window.confirm(`Are You Sure delete ${_id}`)
         if (agree) {
-            fetch(`http://localhost:5000/myproduct/${_id}`, {
+            fetch(`https://laptop-reseller-server-delta.vercel.app/myproduct/${_id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -49,7 +49,7 @@ const Myorder = () => {
       <td>{orders.model}</td>
       <td>
         <Button onClick={() => hdlt(orders._id)}>Remove</Button></td>
-         <td> <Button >Payment</Button></td>
+         <td> <Button ><Link style={{ textDecoration: 'none' }} to={`/payment/${orders._id}`}>Pay</Link></Button></td>
         
       
 

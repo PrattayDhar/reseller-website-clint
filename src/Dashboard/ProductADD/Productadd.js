@@ -1,4 +1,5 @@
 
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 // import { useLoaderData } from 'react-router-dom';
 import './Productadd.css'
@@ -6,16 +7,17 @@ import './Productadd.css'
 const Productadd = () => {
     const [cetagorys, setCetagory] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/category')
-            .then((res) => res.json())
-            .then((data) => setCetagory(data));
+        axios.get(`https://laptop-reseller-server-delta.vercel.app/category`).then((res) => {
+      const CAT = res.data;
+      setCetagory(CAT);
+    });
     }, []);
 
     const [user, setUser] = useState({})
     const addservice = event =>{
         event.preventDefault();
         console.log(user);
-        fetch("http://localhost:5000/productadd",{
+        fetch("https://laptop-reseller-server-delta.vercel.app/productadd",{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

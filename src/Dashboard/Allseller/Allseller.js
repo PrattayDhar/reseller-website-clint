@@ -9,7 +9,7 @@ const Allseller = () => {
       const hdlt = _id => {
         const agree = window.confirm(`Are You Sure delete ${_id}`)
         if (agree) {
-            fetch(`http://localhost:5000/sellers/${_id}`, {
+            fetch(`https://laptop-reseller-server-delta.vercel.app/sellers/${_id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -25,7 +25,7 @@ const Allseller = () => {
     }
 
     const Handleverify = (id) => {
-    fetch(`http://localhost:5000/sellers/ver/${id}`, {
+    fetch(`https://laptop-reseller-server-delta.vercel.app/sellers/ver/${id}`, {
           method: "PATCH",
           headers: { "content-type": "application/json" },
         })

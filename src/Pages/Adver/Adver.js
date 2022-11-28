@@ -4,7 +4,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 const Adver = () => {
      const [add, setadd] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/home/add')
+        fetch('https://laptop-reseller-server-delta.vercel.app/home/add')
             .then((res) => res.json())
             .then((data) => setadd(data));
     }, []);

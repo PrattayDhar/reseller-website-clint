@@ -5,7 +5,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 
 const Muproduct = () => {
 const HandleUpdate = (id) => {
-    fetch(`http://localhost:5000/product/ad/${id}`, {
+    fetch(`https://laptop-reseller-server-delta.vercel.app/product/ad/${id}`, {
           method: "PATCH",
           headers: { "content-type": "application/json" },
         })
@@ -21,7 +21,7 @@ const HandleUpdate = (id) => {
       const hdlt = _id => {
         const agree = window.confirm(`Are You Sure delete ${_id}`)
         if (agree) {
-            fetch(`http://localhost:5000/Sellerproduct/${_id}`, {
+            fetch(`https://laptop-reseller-server-delta.vercel.app/Sellerproduct/${_id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -38,7 +38,7 @@ const HandleUpdate = (id) => {
  const { User } = useContext(AuthContext);
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/Sellerproduct/?email=${User?.email}`)
+        fetch(`https://laptop-reseller-server-delta.vercel.app/Sellerproduct/?email=${User?.email}`)
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, []);

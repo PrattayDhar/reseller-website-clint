@@ -8,7 +8,7 @@ const Allbuyer = () => {
       const hdlt = _id => {
         const agree = window.confirm(`Are You Sure delete ${_id}`)
         if (agree) {
-            fetch(`http://localhost:5000/buyer/${_id}`, {
+            fetch(`https://laptop-reseller-server-delta.vercel.app/buyer/${_id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

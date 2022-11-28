@@ -83,7 +83,7 @@ const Getstarted = () => {
             });
     };
       const rolelogin=(user)=>{
-           fetch("http://localhost:5000/useradd",{
+           fetch("https://laptop-reseller-server-delta.vercel.app/useradd",{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

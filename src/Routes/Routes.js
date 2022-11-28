@@ -14,6 +14,7 @@ import Prepayment from "../Pages/Prepayment/Prepayment";
 import Productadd from "../Dashboard/ProductADD/Productadd";
 import Error from "../Shared/Error/Error";
 import PrivateRoute from "./PrivateRoutes";
+import Payment from "../Pages/Payment/Payment";
 
 
 export const routes = createBrowserRouter([
@@ -24,7 +25,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/category')
+                loader: () => fetch('https://laptop-reseller-server-delta.vercel.app/category')
 
             },
             
@@ -41,17 +42,18 @@ export const routes = createBrowserRouter([
             {
                 path:'/prepayment/:id',
                 // element:<PrivateRoute></PrivateRoute>
-                element: <Prepayment></Prepayment>,
-                 loader: ({ params }) => fetch(`http://localhost:5000/prepayment/${params.id}`)
+                element: <PrivateRoute><Prepayment></Prepayment></PrivateRoute>,
+                 loader: ({ params }) => fetch(`https://laptop-reseller-server-delta.vercel.app/prepayment/${params.id}`)
             },
-            // {
-            //     path:'/productadd',
-            //     element:<Productadd></Productadd>
-            // },
+            {
+                path:'/payment/:id',
+                element:<Payment></Payment> ,
+                 loader: ({ params }) => fetch(`https://laptop-reseller-server-delta.vercel.app/payorder/${params.id}`)
+            },
             {
                 path:'/product/:id',
                 element:<Cetagorydetail></Cetagorydetail>,
-                loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+                loader: ({ params }) => fetch(`https://laptop-reseller-server-delta.vercel.app/product/${params.id}`)
                 
 
             },
@@ -67,14 +69,14 @@ export const routes = createBrowserRouter([
     element: <PrivateRoute><Dashboardlayout></Dashboardlayout></PrivateRoute>,
     children: [
       { path: "/Dashboard/MyOrders", element: <Myorder></Myorder>,
-      loader:()=>fetch('http://localhost:5000/myorders')
+      loader:()=>fetch('https://laptop-reseller-server-delta.vercel.app/myorders')
      },
       { path: "/Dashboard/MyProducts", element: <Muproduct></Muproduct>},
       { path: "/Dashboard/productadd", element:<Productadd></Productadd>  },
       { path: "/Dashboard/AllSellers", element: <Allseller></Allseller>,
-    loader:()=>fetch('http://localhost:5000/sellers') },
+    loader:()=>fetch('https://laptop-reseller-server-delta.vercel.app/sellers') },
       { path: "/Dashboard/AllBuyers", element: <Allbuyer></Allbuyer>,
-    loader:()=>fetch('http://localhost:5000/buyer') },
+    loader:()=>fetch('https://laptop-reseller-server-delta.vercel.app/buyer') },
       {
         path: "/Dashboard/ReportedItems",
         element: <Reportiteam></Reportiteam>

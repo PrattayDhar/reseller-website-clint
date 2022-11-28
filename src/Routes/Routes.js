@@ -67,6 +67,7 @@ export const routes = createBrowserRouter([
     element: <PrivateRoute><Dashboardlayout></Dashboardlayout></PrivateRoute>,
     children: [
       { path: "/Dashboard/MyOrders", element: <Myorder></Myorder>,
+      loader:()=>fetch('http://localhost:5000/myorders')
      },
       { path: "/Dashboard/MyProducts", element: <Muproduct></Muproduct>},
       { path: "/Dashboard/productadd", element:<Productadd></Productadd>  },

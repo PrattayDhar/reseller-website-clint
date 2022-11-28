@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const Allseller = () => {
     const allseller = useLoaderData()
+    
      const [allUser, setUser] = useState([])
       const hdlt = _id => {
         const agree = window.confirm(`Are You Sure delete ${_id}`)

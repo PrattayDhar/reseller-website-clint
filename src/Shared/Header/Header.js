@@ -34,7 +34,7 @@ const Header = () => {
           </Nav>
           <Nav>
              <Nav.Link >{User ? <div className='d-flex'><Nav.Link >{User.displayName}</Nav.Link>
-              <Nav.Link  ><img src={User.photoURL} alt="" title={User.displayName} className='rounded-circle  naving' /></Nav.Link></div> : ""}</Nav.Link>
+              <Nav.Link  ><img src={User.photoURL} alt="" title={User.displayName} className='rounded-circle w-25  naving' /></Nav.Link></div> : ""}</Nav.Link>
           
             <Nav.Link >{User ? <Link onClick={HandleLogout} style={{ textDecoration: 'none' }}>Log Out</Link> : <Nav.Link ><Link to={'/getstarted'} style={{ textDecoration: 'none' }}>Get Started</Link></Nav.Link>}</Nav.Link>
           </Nav>

@@ -38,7 +38,7 @@ const Prepayment = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert('Thank You')
+                    alert('Go To Dashboard Complete Your Payment')
                     event.target.reset()
                 }
             })
@@ -77,7 +77,7 @@ const Prepayment = () => {
                     <label className="label my-3" >Brand Name</label>
                 </div>
                 <div className="form-field col-lg-6 ">
-                    <input name="Date" className="input-text js-input" type="date" required  value={prepayment.Date} readOnly/>
+                    <input name="Date" className="input-text js-input" type="date" required />
                     <label className="label my-3" >Buying Date</label>
                 </div>
                 
@@ -86,7 +86,7 @@ const Prepayment = () => {
                     <label className="label my-3" >Price</label>
                 </div>
                 <div className="form-field col-lg-12">
-                    <button className="submit-btn mt-5" type="submit" value="Submit">Payment</button>
+                    <button className="submit-btn mt-5" type="submit" value="Submit" >Processed</button>
                 </div>
    
             </form>
